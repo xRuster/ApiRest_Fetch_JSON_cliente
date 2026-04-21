@@ -41,8 +41,21 @@ async function obtenerPosts() {
 }
 
 async function obtenerPost(id) {
-    // TODO
-}
+    try {
+        const res = await fetch (API + "/" + id);
+        if (!res.ok){
+            throw Error ("HTTP Error", res.status);
+        }else{
+            const post = await res.json();
+            console.log("Post: " + id + " ", post);
+            return post;
+        }
+        
+    } catch (error) {
+        console.log("Error al obtener el post:", error.message);
+        return null;
+    }
+};
 
 async function crearPost(titulo, cuerpo) {
     // TODO
