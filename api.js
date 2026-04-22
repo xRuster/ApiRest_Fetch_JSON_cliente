@@ -76,7 +76,10 @@ async function crearPost(titulo, cuerpo) {
 }
 
 async function demo() {
-    // TODO: llamar a las 3 funciones anteriores
+    await obtenerPosts();
+    await obtenerPosts(1);
+    await obtenerPosts(5);
+    await crearPost("Prueba Post", "Contenido del Post");
 }
 
 demo();
