@@ -58,7 +58,21 @@ async function obtenerPost(id) {
 };
 
 async function crearPost(titulo, cuerpo) {
-    // TODO
+    try {
+        const res = await fetch(API , {
+            method:"POST",
+            headers: {"Content-Type":"application/json"},
+            body: JSON.stringify({title:titulo,body:cuerpo,userId:1})
+        });
+        if(!res.ok){
+            throw new Error ("HTTP error", res.status);
+        }
+        const nuevo = await res.json();
+        console.log("Post creado con info del server: ", nuevo);
+        return nuevo;
+    } catch (error) {
+        console.log("Error al crear Post", error.message);
+    }
 }
 
 async function demo() {
