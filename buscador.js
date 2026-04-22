@@ -33,7 +33,7 @@ async function obtenerUsuarios() {
             throw new Error ("HTTP error: ", res.status);
             
         }else{
-            const users = await res.json();
+            return await res.json();
         }
     } catch (error) {
         console.log("Error al cargar usuarios",error.message);
@@ -43,6 +43,26 @@ async function obtenerUsuarios() {
 
 function mostrar(usuarios) {
     // TODO: forEach imprimiendo nombre | email | ciudad
+    usuarios.forEach(({name, email, address})=> {
+        console.log("Nombre: " + name + " Email: " + email + "Direccion: " + address.street + ", " + address.suite + ", " + address.city);
+    });
+    console.log("Total de usuarios: " + usuarios.length);
+    //PRUEBA PARA HTML
+    const tarjeta = document.createElement("div");
+    tarjeta.setAttribute("class","tarjeta");
+
+    const nombre = document.createElement("h3");
+    nombre.textContent = name;
+
+    const email = document.createElement("h4");
+    email.textContent = email;
+
+    const direccion = document.createElement("p");
+    direccion.textContent = address;
+
+    tarjeta.appendChild(nombre);
+    tarjeta.appendChild(email);
+    tarjeta.appendChild(direccion);
 }
 
 function buscar(texto) {
