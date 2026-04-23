@@ -67,6 +67,10 @@ function mostrar(usuarios) {
 
 function buscar(texto) {
     // TODO: filter case-insensitive sobre todosUsuarios + mostrar()
+    const textoABuscar = texto.toLowerCase();
+    const filtrados = todosUsuarios.filter(u=>u.name.toLowerCase().include(textoABuscar));
+    console.log("Numero de filtrados tras el filtro: " + filtrados.length);
+    mostrar(filtrados);
 }
 
 async function init() {
