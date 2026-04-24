@@ -75,6 +75,11 @@ function buscar(texto) {
 
 async function init() {
     // TODO: await obtenerUsuarios(), mostrar, programar buscar() con setTimeout
+    todosUsuarios = await obtenerUsuarios();
+    mostrar(todosUsuarios);
+    setTimeout(()=> buscar("Cle"),2000);
+    setTimeout(()=> buscar("Kur"),3000);
+    setTimeout(()=> buscar("hola hola"),4000);
 }
 
 init();
