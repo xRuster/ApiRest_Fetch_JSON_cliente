@@ -61,6 +61,9 @@ async function cargarPagina(pagina) {
 
 async function demo() {
     // TODO: await cargarPagina(1), (2) y (10)
+    await cargarPagina(1);
+    await cargarPagina(2);
+    await cargarPagina(10);
 }
 
 demo();
